@@ -1,0 +1,27 @@
+{
+  "name": "yt2skill",
+  "version": "0.1.0",
+  "description": "Turn a YouTube video into an Agent Skill (SKILL.md + key frames) using Claude",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepare": "tsc"
+  },
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  },
+  "bin": {
+    "yt2skill": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "AGENT_USAGE.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}

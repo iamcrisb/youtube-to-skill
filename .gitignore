@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Pipeline cache: downloaded videos, transcripts, frames, stage results (regenerable, can be GBs)
+.cache/
+
+# Generated skills: default output dir and local test runs
+skills/
+out/
+out-*/
+
+# Media that should never land in the repo, wherever it ends up
+*.mp4
+*.mkv
+*.webm
+*.mov
+*.m4a
+*.mp3
+*.wav
+*.part
+*.ytdl
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs and debug output
+*.log
+npm-debug.log*
+debug/
+run.json
+run.log
+
+# Packaging
+*.tgz
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json
