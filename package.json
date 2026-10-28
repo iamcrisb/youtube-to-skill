@@ -1,6 +1,6 @@
 {
   "name": "youtube-to-skill",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Turn a YouTube video into an Agent Skill (SKILL.md, references and verified key frames) using Claude Code",
   "keywords": [
     "claude",
@@ -15,6 +15,14 @@
   ],
   "author": "Cristian Daniel Buta <cristian.daniel.buta@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamcrisb/youtube-to-skill.git"
+  },
+  "homepage": "https://github.com/iamcrisb/youtube-to-skill#readme",
+  "bugs": {
+    "url": "https://github.com/iamcrisb/youtube-to-skill/issues"
+  },
   "type": "module",
   "bin": {
     "yt2skill": "dist/cli.js"

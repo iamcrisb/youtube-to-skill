@@ -43,7 +43,7 @@ Every `build` makes many `claude -p` calls (roughly 30+ for a 45-minute video), 
 From source:
 
 ```bash
-git clone <repo> && cd yt2skill
+git clone https://github.com/iamcrisb/youtube-to-skill.git && cd youtube-to-skill
 npm install && npm run build && npm link
 ```
 
