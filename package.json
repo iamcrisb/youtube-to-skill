@@ -1,19 +1,21 @@
 {
-  "name": "yt2skill",
+  "name": "youtube-to-skill",
   "version": "0.1.0",
-  "description": "Turn a YouTube video into an Agent Skill (SKILL.md + key frames) using Claude",
-  "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "prepare": "tsc"
-  },
-  "author": "",
+  "description": "Turn a YouTube video into an Agent Skill (SKILL.md, references and verified key frames) using Claude Code",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "agent-skills",
+    "skills",
+    "ai-agents",
+    "youtube",
+    "transcript",
+    "cli",
+    "llm"
+  ],
+  "author": "Cristian Daniel Buta <cristian.daniel.buta@gmail.com>",
   "license": "MIT",
   "type": "module",
-  "devDependencies": {
-    "@types/node": "^26.6.6",
-    "typescript": "^7.0.2"
-  },
   "bin": {
     "yt2skill": "dist/cli.js"
   },
@@ -23,5 +25,14 @@
   ],
   "engines": {
     "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
   }
 }

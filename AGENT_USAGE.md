@@ -7,6 +7,14 @@ description: Turn a YouTube tutorial into a reusable Agent Skill (SKILL.md, refe
 
 `yt2skill` gets a YouTube video's transcript and any GitHub code linked in its description. Claude scans the transcript window by window for every moment that refers to the screen, then grabs frames there and verifies them. Misses are retried at nearby scene changes, small text is re-read in 4K, and scrolling content is stitched together. It also checks scene changes nobody talks about. Finally it writes the skill from verified evidence and fact-checks it with a review pass. It runs on the user's Claude subscription through `claude -p`.
 
+## Install
+
+```bash
+npm install -g youtube-to-skill
+```
+
+This installs the `yt2skill` command. Without installing, prefix commands with `npx youtube-to-skill` instead of `yt2skill`.
+
 ## Check readiness first
 
 ```bash

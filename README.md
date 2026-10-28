@@ -1,4 +1,4 @@
-# yt2skill
+# yt2skill (`youtube-to-skill` on npm)
 
 Turn a YouTube video into an [Agent Skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills): a `SKILL.md` with instructions, reference files and the frames that actually matter. Runs on your Claude subscription through Claude Code (`claude -p`). No API key needed.
 
@@ -31,9 +31,20 @@ Frames are chosen from what is being said, not by scene detection, so the skill 
 Requirements: Node 20+, `yt-dlp`, `ffmpeg`, and [Claude Code](https://claude.com/claude-code) logged in with your subscription. Optional: `mlx-whisper` / `openai-whisper` / whisper.cpp for videos without subtitles.
 
 ```bash
-brew install yt-dlp ffmpeg
-npm install && npm link
-yt2skill doctor
+brew install yt-dlp ffmpeg      # system tools npm cannot install
+npm install -g youtube-to-skill   # installs the `yt2skill` command
+yt2skill doctor                 # checks tools and shows which Claude account builds will bill
+```
+
+Or run it without installing: `npx youtube-to-skill doctor`.
+
+Every `build` makes many `claude -p` calls (roughly 30+ for a 45-minute video), billed to the account the `claude` CLI is logged into. Check it with `yt2skill doctor` and switch it with `claude auth login`.
+
+From source:
+
+```bash
+git clone <repo> && cd yt2skill
+npm install && npm run build && npm link
 ```
 
 ## Usage
@@ -70,3 +81,7 @@ Everything is non-interactive. `--json` prints exactly one JSON object to stdout
 An agent that is itself Claude can skip the nested call: run `transcript`, decide the moments, run `frames --at ...`, then write the skill itself.
 
 Downloads and transcripts are cached in `~/.cache/yt2skill/<video-id>/`.
+
+## License
+
+MIT
