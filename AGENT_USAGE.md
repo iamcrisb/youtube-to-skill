@@ -1,11 +1,11 @@
 ---
 name: youtube-to-skill
-description: Turn a YouTube tutorial into a reusable Agent Skill (SKILL.md, reference files and key video frames) with the yt2skill CLI. Use when the user shares a YouTube link and asks to "make a skill from this video", "learn this from YouTube", "turn this tutorial into instructions", or wants an agent to gain a capability shown in a video.
+description: Turn a YouTube video (talk, interview, playbook, how-to) into a reusable Agent Skill (SKILL.md, reference files and key video frames) with the yt2skill CLI. Use when the user shares a YouTube link and asks to "make a skill from this video", "learn this from YouTube", "turn this talk into a playbook", or wants an agent to gain a capability shown in a video.
 ---
 
 # youtube-to-skill
 
-`yt2skill` gets a YouTube video's transcript and any GitHub code linked in its description. Claude scans the transcript window by window for every moment that refers to the screen, then grabs frames there and verifies them. Misses are retried at nearby scene changes, small text is re-read in 4K, and scrolling content is stitched together. It also checks scene changes nobody talks about. Finally it writes the skill from verified evidence and fact-checks it with a review pass. It runs on the user's Claude subscription through `claude -p`.
+`yt2skill` gets a YouTube video's transcript and any GitHub files linked in its description. Claude scans the transcript window by window for every moment that refers to the screen, then grabs frames there and verifies them. Misses are retried at nearby scene changes, small text is re-read in 4K, and scrolling content is stitched together. It also checks scene changes nobody talks about. Finally it writes the skill from verified evidence and fact-checks it with a review pass. It runs on the user's Claude subscription through `claude -p`.
 
 ## Install
 
@@ -39,7 +39,7 @@ yt2skill build "<youtube-url>" --prompt "<what the skill should teach, in the us
 ## Option B: do the reasoning yourself (no nested Claude call)
 
 1. `yt2skill transcript "<url>" --json`, then read `transcript.file`. Every line starts with a `[mm:ss]` timestamp.
-2. Go through the transcript a few minutes at a time and note every moment where the speaker refers to something on screen that matters: code, commands, file contents, UI, posts, diagrams. Visuals usually appear 1 to 4 seconds after they are mentioned, so request two times per moment.
+2. Go through the transcript a few minutes at a time and note every moment where the speaker refers to something on screen that matters: slides, posts and their copy, charts and numbers, product UI, settings, documents, diagrams. Visuals usually appear 1 to 4 seconds after they are mentioned, so request two times per moment.
 3. `yt2skill frames "<url>" --at 1:23,1:27,2:05,2:09 --json`, then view each `frames[].file`. If no shot shows what you expected, retry at other offsets (e.g. -3s, +8s, +12s). Do not guess details you could not see.
 4. Write the SKILL.md yourself, copying the frames you link into `assets/frames/`.
 

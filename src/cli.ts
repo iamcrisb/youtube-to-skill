@@ -16,7 +16,7 @@ Usage:
   yt2skill doctor                              Check dependencies.
 
 How build works:
-  1. Get the transcript (YouTube subtitles, else Whisper) and any GitHub code linked in the description.
+  1. Get the transcript (YouTube subtitles, else Whisper) and any GitHub files linked in the description.
   2. Claude scans the transcript window by window (default 3 min) and marks every
      moment that refers to something on screen relevant to the goal.
   3. Frames are grabbed at each moment and at the next scene change; Claude verifies them.
@@ -42,7 +42,7 @@ Build options:
       --concurrency <n>      Parallel \`claude -p\` calls (default: 4)
       --max-silent <n>       Scene changes checked for unnarrated visuals (default: 24, 0 = off)
       --hires-height <px>    Resolution for re-grabbing small text (default: 2160)
-      --no-sources           Do not fetch GitHub code linked in the description
+      --no-sources           Do not fetch GitHub files linked in the description
       --no-review            Skip the fact-check pass
       --fresh                Ignore cached stages and redo everything
       --force                Overwrite an existing skill folder

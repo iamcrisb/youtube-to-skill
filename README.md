@@ -3,7 +3,7 @@
 Turn a YouTube video into an [Agent Skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills): a `SKILL.md` with instructions, reference files and the frames that actually matter. Runs on your Claude subscription through Claude Code (`claude -p`). No API key needed.
 
 ```
-YouTube URL ─yt-dlp─▶ transcript (subtitles, else Whisper)  +  GitHub code linked in the description
+YouTube URL ─yt-dlp─▶ transcript (subtitles, else Whisper)  +  files linked in the description (GitHub)
                           │
                           ▼
    1. Claude scans the transcript in 3-minute windows (in parallel) and marks EVERY moment
@@ -24,7 +24,7 @@ YouTube URL ─yt-dlp─▶ transcript (subtitles, else Whisper)  +  GitHub code
 
 Every stage is cached per video and inputs (`~/.cache/yt2skill/<id>/runs/`), so a failed or repeated run resumes where it stopped. The transcript scan, writing and review use `--model` (the scan is where missing a moment costs the most). The high-volume checks (frame verification, stitching, silent visuals, source picking) run on `--check-model`, `sonnet` by default.
 
-Frames are chosen from what is being said, not by scene detection, so the skill gets the details that only appear on screen (exact Dockerfiles, flags, button locations). Auto-captions often mangle technical terms, and the frames correct them.
+Frames are chosen from what is being said, not by scene detection, so the skill gets the details that only appear on screen (exact post copy, slide text, numbers, settings, button locations). Auto-captions often mangle technical terms, and the frames correct them.
 
 ## Install
 
@@ -50,16 +50,16 @@ npm install && npm run build && npm link
 ## Usage
 
 ```bash
-yt2skill build "https://www.youtube.com/watch?v=Gjnup-PuquQ" \
-  -p "Teach an agent to containerize an app with Docker" \
+yt2skill build "https://www.youtube.com/watch?v=v12aSIZIXUs" \
+  -p "Teach an agent to plan and script startup launch videos using Farza's playbook" \
   -o ~/.claude/skills
 ```
 
 ```
-~/.claude/skills/docker-containerize-basics/
+~/.claude/skills/founder-launch-videos/
 ├── SKILL.md
-├── references/video-outline.md
-├── assets/frames/0129.jpg   0136.jpg   0142.jpg   # only frames the skill links
+├── references/examples.md   script-templates.md   outline.md
+├── assets/frames/0604.jpg   0850.jpg   2306.jpg ...   # only frames the skill links
 └── source.json                                   # provenance: prompt, every moment + verification, source files, review issues
 ```
 

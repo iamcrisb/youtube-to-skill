@@ -1,6 +1,6 @@
 {
   "name": "youtube-to-skill",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Turn a YouTube video into an Agent Skill (SKILL.md, references and verified key frames) using Claude Code",
   "keywords": [
     "claude",
